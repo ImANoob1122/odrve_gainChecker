@@ -314,6 +314,7 @@ class GraphWindow(QtWidgets.QMainWindow):
 def main(args=None):
     rclpy.init(args=args)
     node = OdriveControllerNode()
+    rclpy.spin(node)
     ros_thread = threading.Thread(target=rclpy.spin, args=(node,), daemon=True)
     ros_thread.start()
 
